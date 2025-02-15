@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  backend:
+    build: .
+    container_name: ytdl_backend
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./files:/app/files  # Mappa la cartella files per la persistenza
+    environment:
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
